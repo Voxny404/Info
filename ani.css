@@ -5,10 +5,38 @@
     padding: 0px;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #4e54c8;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #141822;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #141822;
+}
 body{
     font-family: 'Exo', sans-serif;
 }
+.mainDiv{
 
+  position: relative;
+  min-height: 100vh;
+
+}
+
+footer {
+  position: relative;
+  text-align: center;
+  padding-bottom: 2.5rem;
+  background-color: #141822;
+  color: white;
+}
 
 .context {
     width: 100%;
@@ -23,6 +51,9 @@ body{
     font-size: 50px;
 }
 
+.textCol{
+  color: white;
+}
 
 .area{
     background: #4e54c8;
@@ -48,7 +79,7 @@ body{
     list-style: none;
     width: 20px;
     height: 20px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.7);
     animation: animate 25s linear infinite;
     bottom: -150px;
 

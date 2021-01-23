@@ -21,7 +21,6 @@
     <link rel="mask-icon" href="" color="#7952b3">
     <link rel="icon" href="">
 
-
       <style>
         .bd-placeholder-img {
           font-size: 1.125rem;
@@ -38,12 +37,10 @@
         }
       </style>
 
-
-
     </head>
     <body class="area" style="background-image: url('#');background-position: center;background-repeat: no-repeat;" >
       <!-- needed for css animation style -->
-      <div>
+      <div class = "mainDiv">
         <ul class="circles">
                    <li></li>
                    <li></li>
@@ -60,75 +57,35 @@
         <div style="margin:auto;width:50%">
           </br>
           </br>
-          <h4>PC Information</h4>
+          <h4 class="textCol">PC Information</h4>
           </br>
-          <p id="gpu">GPU : unknown</p>
-          <p id="platfom">System : unknown</p>
-          <p id="ram">RAM : unkown</p>
-          <p id="cpus">Processors : unkown</p>
-          <p id="isTouch">Touch : unkown</p>
-          <p id="OnlineCheck">Online : unkown</p>
-          <p id="downloadSpeed">Download speed : unkown</p>
-          <p id="publicIp">Public IP : unkown</p>
-          <p id="lat"></p>
-          <p id="lon"></p>
+          <p class="textCol" id="gpu">GPU : unknown</p>
+          <p class="textCol" id="platfom">System : unknown</p>
+          <p class="textCol" id="ram">RAM : unkown</p>
+          <p class="textCol" id="cpus">Processors : unkown</p>
+          <p class="textCol" id="isTouch">Touch : unkown</p>
+          <p class="textCol" id="OnlineCheck">Online : unkown</p>
+          <p class="textCol" id="downloadSpeed">Download speed : unkown</p>
+          <p class="textCol" id="publicIp">Public IP : unkown</p>
+          <p class="textCol" id="lat"></p>
+          <p class="textCol" id="lon"></p>
 
         </div>
       </div>
 
-
+      <footer>
+        <div style="">
+        </br>
+          <div>
+            <p class="textCol" style=" color:#4e54c8;opacity: 0.8">Made by
+            <a style="text-decoration: none;color:#4e54c8;" href="Voxny404@gmail.com">Voxny404@gmail.com</a></p>
+            <p class="textCol" style=" opacity: 0.2;font-size: 11px;">powered by Github</p>
+          </div>
+        </div>
+      </footer>
     </body>
 
-    <script type="text/javascript">
-      // gets GPU
-      let canvas = document.createElement('canvas');
-
-      try {
-        let gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl'),
-            debugInfo, renderer
-
-        if (gl) {
-          debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-          renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-          document.getElementById("gpu").innerHTML = `GPU : ${renderer}`
-        }
-      } catch (e) {}
-
-      // gets System
-      document.getElementById("platfom").innerHTML = `System : ${navigator.platform}`
-
-      // gets RAM
-      document.getElementById("ram").innerHTML = `RAM : ${navigator.deviceMemory} GB`
-
-      // gets processors
-      document.getElementById("cpus").innerHTML = `Processors : ${navigator.hardwareConcurrency }`
-
-      // checks for touch function
-      if(navigator.maxTouchPoints == '0'){
-        document.getElementById("isTouch").innerHTML = `Touch : false`
-      } else {
-        document.getElementById("isTouch").innerHTML = `Touch : true`
-      }
-
-      //checks download rate
-      setInterval(()=>{document.getElementById("downloadSpeed").innerHTML = `Download speed : ${navigator.connection.downlink  }`},2000)
-
-      //checks Online status
-      setInterval(()=>{document.getElementById("OnlineCheck").innerHTML = `Online : ${navigator.onLine}`},2000)
-
-      // gets location
-      navigator.geolocation.getCurrentPosition((successCallback) =>
-      {
-        document.getElementById("lat").innerHTML = `Laditude : ${successCallback.coords.latitude}`
-        document.getElementById("lon").innerHTML = `Longitude: ${successCallback.coords.longitude}`
-      })
-
-      // gets public ip
-      function getIP(json){
-        document.getElementById("publicIp").innerHTML = `Public IP : ${json.ip}`
-      }
-
-    </script>
+    <script type="text/javascript" src="dataFetch.js"></script>
     <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 
 </html>
